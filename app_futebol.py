@@ -2,7 +2,6 @@ import streamlit as st
 import math
 from collections import Counter
 
-# =============================================================================
 # 0. CONFIGURAÇÃO (Streamlit)
 # =============================================================================
 st.set_page_config(page_title="Tática de Escanteios v2.1", page_icon="⚽")
@@ -77,18 +76,18 @@ def predict_with_explanation(node, observation, path=[]):
 
 # =============================================================================
 # 2. DATASET ATUALIZADO (Incluindo CRUZAMENTO_SEGUNDO_PAU)
-# =============================================================================
+# 
 
 dataset_futebol = [
     # --- NOVIDADE: SEGUNDO PAU (Fugir da zona congestionada) ---
     # Lógica: Se é Zona/Mista e o Goleiro não sai, a bola longa nas costas da defesa é mortal.
     {'Marcacao': 'Zona',       'Goleiro': 'Fica_Gol', 'Estatura_Nosso_Time': 'Altos',  'Estatura_Adversario': 'Altos',  'Pressao': 'Nao', 'Decisao': 'Cruzamento_Segundo_Pau'},
     {'Marcacao': 'Mista',      'Goleiro': 'Fica_Gol', 'Estatura_Nosso_Time': 'Altos',  'Estatura_Adversario': 'Altos',  'Pressao': 'Nao', 'Decisao': 'Cruzamento_Segundo_Pau'},
-    {'Marcacao': 'Zona',       'Goleiro': 'Fica_Gol', 'Estatura_Nosso_Time': 'Baixos', 'Estatura_Adversario': 'Altos',  'Pressao': 'Nao', 'Decisao': 'Cruzamento_Segundo_Pau'}, # Única chance dos baixos contra altos na zona
+    {'Marcacao': 'Zona',       'Goleiro': 'Fica_Gol', 'Estatura_Nosso_Time': 'Baixos', 'Estatura_Adversario': 'Altos',  'Pressao': 'Nao', 'Decisao': 'Cruzamento_Segundo_Pau'}, 
 
     # --- CENÁRIOS DE VANTAGEM AÉREA (Nós Altos vs Eles Baixos) ---
     {'Marcacao': 'Individual', 'Goleiro': 'Fica_Gol', 'Estatura_Nosso_Time': 'Altos',  'Estatura_Adversario': 'Baixos', 'Pressao': 'Nao', 'Decisao': 'Cruzamento_Ponto_Penalti'},
-    {'Marcacao': 'Zona',       'Goleiro': 'Fica_Gol', 'Estatura_Nosso_Time': 'Altos',  'Estatura_Adversario': 'Baixos', 'Pressao': 'Nao', 'Decisao': 'Cruzamento_Ponto_Penalti'}, # Aqui mantemos pênalti pois ganhamos no alto fácil
+    {'Marcacao': 'Zona',       'Goleiro': 'Fica_Gol', 'Estatura_Nosso_Time': 'Altos',  'Estatura_Adversario': 'Baixos', 'Pressao': 'Nao', 'Decisao': 'Cruzamento_Ponto_Penalti'}, 
     {'Marcacao': 'Mista',      'Goleiro': 'Fica_Gol', 'Estatura_Nosso_Time': 'Altos',  'Estatura_Adversario': 'Baixos', 'Pressao': 'Nao', 'Decisao': 'Cruzamento_Ponto_Penalti'},
     
     # --- CENÁRIOS DE DESVANTAGEM AÉREA (Nós Baixos vs Eles Altos) ---
@@ -97,7 +96,7 @@ dataset_futebol = [
     {'Marcacao': 'Mista',      'Goleiro': 'Sai_Bem',  'Estatura_Nosso_Time': 'Baixos', 'Estatura_Adversario': 'Altos',  'Pressao': 'Nao', 'Decisao': 'Cruzamento_Primeiro_Pau'},
 
     # --- JOGO PARELHO (Altos vs Altos) - Ajustado para evitar conflito com Segundo Pau ---
-    # Se o goleiro sai bem, não dá pra mandar no segundo pau (ele pega). Então vai no primeiro ou curto.
+    
     {'Marcacao': 'Individual', 'Goleiro': 'Sai_Bem',  'Estatura_Nosso_Time': 'Altos',  'Estatura_Adversario': 'Altos',  'Pressao': 'Nao', 'Decisao': 'Cruzamento_Primeiro_Pau'},
     {'Marcacao': 'Mista',      'Goleiro': 'Sai_Bem',  'Estatura_Nosso_Time': 'Altos',  'Estatura_Adversario': 'Altos',  'Pressao': 'Nao', 'Decisao': 'Cruzamento_Primeiro_Pau'},
 
