@@ -1,4 +1,10 @@
 # ProjetosIA2025-2
+Integrantes:
+Rafael Miranda Oliveira Nascimento 
+João Vitor Mota dos Reis 
+Henrick Cardoso dos Santos
+Yuri santana oliveira
+
 ## Descrição do trabalho árvore de decisão
 Este projeto foi desenvolvido para a disciplina de Inteligência Artificial e foca na implementação de um algoritmo de Árvore de Decisão (ID3) construído do zero a partir de um pseudo-código. O objetivo do sistema é atuar como um consultor tático, analisando variáveis de uma partida de futebol para decidir a melhor jogada na cobrança de um escanteio.
 
