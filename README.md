@@ -5,13 +5,27 @@ João Vitor Mota dos Reis;
 Henrick Cardoso dos Santos;
 Yuri santana oliveira;
 
-## Descrição do trabalho árvore de decisão
-Este projeto foi desenvolvido para a disciplina de Inteligência Artificial e foca na implementação de um algoritmo de Árvore de Decisão (ID3) construído do zero a partir de um pseudo-código. O objetivo do sistema é atuar como um consultor tático, analisando variáveis de uma partida de futebol para decidir a melhor jogada na cobrança de um escanteio.
 
-Para tornar a ferramenta visual e interativa, o projeto utiliza a biblioteca Streamlit na criação da interface web, permitindo a inserção de dados como marcação, pressão e estatura dos times. A partir da decisão calculada pela IA, o código explica a lógica adotada e utiliza o Matplotlib para desenhar o campo e plotar a posição exata da jogada recomendada.
-
-### Link para site do trabalho árvore de decisão
+## Link para site do trabalho árvore de decisão
 https://appfutdec-mb9t9mthrasuw47tweean6.streamlit.app
+
+## Instalação e execução deste código
+#### Pré-requisitos
+Certifique-se de ter o Python instalado em sua máquina. O projeto utiliza bibliotecas nativas do Python (`math`, `collections`) e algumas bibliotecas externas que precisam ser instaladas.
+
+#### Clone o repositório 
+git clone https://github.com/devrafamon/ProjetosIA2025-2.git
+
+#### Entre na pasta do repositório
+cd ProjetosIA2025-2
+
+#### Instalação das Dependências
+Abra o seu terminal e instale o Streamlit e o Matplotlib utilizando o `pip`:
+pip install streamlit matplotlib
+
+#### Execute a aplicação com o Streamlit
+streamlit run Trabalho_2_app_futebol_att2.py
+
 ### Imagem da comparação do pseudo-código com o código em python
 ![Imagem](https://github.com/devrafamon/ProjetosIA2025-2/blob/imagem/Design%20sem%20nome.png)
 ### Árvore de decisão
